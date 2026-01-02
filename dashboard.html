@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Jevle Khana</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="dashboard-screen" class="screen">
+        <header>
+            <img src="logo.png" alt="Jevle Khana" class="header-logo">
+            <div class="header-icons">
+                <div id="notif-bell" style="position: relative; cursor: pointer;" onclick="toggleNotifDropdown()">
+                    <i class="fas fa-bell"></i>
+                    <span id="notif-dot" class="hidden"
+                        style="position: absolute; top: -5px; right: -5px; width: 10px; height: 10px; background: #ff4d4d; border-radius: 50%; border: 2px solid white;"></span>
+                </div>
+            </div>
+
+            <!-- Notifications Dropdown -->
+            <div id="notif-dropdown" class="hidden"
+                style="position: absolute; top: 60px; right: 20px; width: 280px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 1000; padding: 15px; border: 1px solid #eee;">
+                <h4 style="margin: 0 0 10px 0; display: flex; justify-content: space-between; align-items: center;">
+                    Notifications
+                    <span style="font-size: 10px; color: var(--primary); cursor: pointer;" onclick="markAllRead()">Mark
+                        all as read</span>
+                </h4>
+                <div id="notif-list" style="max-height: 300px; overflow-y: auto;">
+                    <p style="text-align: center; color: #999; font-size: 13px; margin: 20px 0;">No new notifications
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Replacement Selection Modal (Customer Side) -->
+        <div id="replacement-modal" class="modal-overlay hidden" style="z-index: 2000;">
+            <div class="modal-content" style="max-width: 350px; padding: 25px;">
+                <h3 id="repl-modal-title" style="margin-top:0;">Replace Item</h3>
+                <p id="repl-modal-desc" style="font-size: 14px; color: #666; margin-bottom: 15px;"></p>
+                <div style="background: #f8f9fa; padding: 10px; border-radius: 10px; margin-bottom: 20px;">
+                    <div id="current-item-box"
+                        style="display: flex; justify-content: space-between; font-weight: bold; font-size: 13px;">
+                        <span>Original:</span>
+                        <span id="orig-item-price">₹0</span>
+                    </div>
+                </div>
+                <div id="repl-menu-options"
+                    style="max-height: 250px; overflow-y: auto; margin-bottom: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <!-- Replacements will be injected here -->
+                </div>
+                <div id="repl-calc-box" class="hidden"
+                    style="padding: 15px; border-top: 2px dashed #eee; margin-top: 10px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:5px; font-size:14px;">
+                        <span>Balance:</span>
+                        <span id="repl-diff-amount">₹0</span>
+                    </div>
+                    <p id="repl-action-hint" style="font-size: 11px; margin-bottom: 15px; font-style: italic;"></p>
+                    <button id="confirm-swap-btn"
+                        style="width: 100%; padding: 12px; background: var(--primary); color: white; border: none; border-radius: 10px; font-weight: bold; box-shadow: 0 4px 10px rgba(255, 77, 36, 0.3);">Confirm
+                        Change</button>
+                </div>
+                <button onclick="closeReplacementModal()"
+                    style="width: 100%; padding: 10px; border: none; background: none; color: #666; margin-top: 10px; cursor: pointer;">Maybe
+                    Later</button>
+            </div>
+        </div>
+
+        <div class="dashboard-content">
+            <h1 class="greeting">What are you <span class="highlight">craving</span> today?</h1>
+            <p class="explore-text">Explore our delicious menu options</p>
+
+            <div class="category-cards">
+                <div class="category-card food-card-large" onclick="showFoodMenu()">
+                    <div class="card-icon">🍱</div>
+                    <h2>Food Menu</h2>
+                    <p>Explore our delicious lunch, snacks, breakfast & chinese items</p>
+                    <a href="#" class="explore-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="category-card juice-card-large" onclick="showJuiceMenu()">
+                    <div class="card-icon">🧃</div>
+                    <h2>Fresh Juices</h2>
+                    <p>Refreshing fruit juices to quench your thirst</p>
+                    <a href="#" class="explore-btn">Explore Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- Menu view moved to menu.html -->
+        </div>
+    </div>
+
+    <nav id="global-bottom-nav" class="bottom-nav">
+        <div class="nav-item active" onclick="showDashboardHome()"><i class="fas fa-home"></i><span>Home</span></div>
+        <div class="nav-item" onclick="showFoodMenu()"><i class="fas fa-bars"></i><span>Menu</span></div>
+        <div class="nav-item" onclick="showCart()"><i class="fas fa-shopping-cart"></i><span>Cart</span></div>
+        <div class="nav-item" onclick="showProfile()"><i class="fas fa-user"></i><span>Profile</span></div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
