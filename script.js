@@ -8,7 +8,12 @@ function selectRole(element) {
 }
 
 // Authentication Logic
-// ... (toggleAuthMode stays same)
+function toggleAuthMode() {
+    const loginForm = document.getElementById('login-form-container');
+    const registerForm = document.getElementById('register-form-container');
+    loginForm.classList.toggle('hidden');
+    registerForm.classList.toggle('hidden');
+}
 
 function handleLogin() {
     // Demo Bypass for Staff if they just click login without creds (optional, but sticking to flow)
@@ -764,7 +769,7 @@ function toggleItemAvailability(id, isAvailable) {
 let currentSwapData = null;
 
 function pollNotifications() {
-    const userJson = localStorage.getItem('currentUser');
+    const userJson = localStorage.getItem('user');
     if (!userJson || !document.getElementById('notif-bell')) return;
     const user = JSON.parse(userJson);
 
