@@ -84,25 +84,8 @@ function handleRegister() {
 }
 
 function showDashboard() {
-    // Play voice note immediately on click
-    const myVoice = new Audio('/js/jevle-ka.mp3');
-    myVoice.volume = 1;
-    myVoice.play().then(() => {
-        console.log("Audio playing successfully");
-        // Redirect after a short delay to allow audio to start/finish? 
-        // For now, let's redirect immediately, browser might cut it off.
-        window.location.href = '/views/dashboard.html';
-    }).catch(error => {
-        console.error("Audio play failed:", error);
-        window.location.href = '/views/dashboard.html';
-    });
-
-    // Fallback if promise hangs (not typically needed but good for safety)
-    setTimeout(() => {
-        if (window.location.href.indexOf('dashboard.html') === -1) {
-            window.location.href = '/views/dashboard.html';
-        }
-    }, 500);
+    // Navigate to dashboard
+    window.location.href = '/views/dashboard.html';
 }
 
 function showLoginPage() {
