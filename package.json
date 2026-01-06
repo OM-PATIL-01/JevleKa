@@ -2,10 +2,10 @@
     "name": "jevle-khana-app",
     "version": "1.0.0",
     "description": "Food ordering app with backend",
-    "main": "server.js",
+    "main": "src/server/server.js",
     "scripts": {
-        "start": "node server.js",
-        "dev": "node server.js"
+        "start": "node src/server/server.js",
+        "dev": "node src/server/server.js"
     },
     "keywords": [],
     "author": "",

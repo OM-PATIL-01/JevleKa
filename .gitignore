@@ -1,5 +1,6 @@
 node_modules/
 .env
-.env.example
-*.sqlite
+src/database/*.sqlite
 *.sqlite-journal
+*.log
+.DS_Store

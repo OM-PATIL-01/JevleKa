@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Health check for deployment verification
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date() }));
@@ -195,7 +195,7 @@ app.get('/api/cart/count', asyncHandler(async (req, res) => {
 }));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'login.html'));
+    res.sendFile(path.join(__dirname, '../public/views/login.html'));
 });
 
 // Generic error handler

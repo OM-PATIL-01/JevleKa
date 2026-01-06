@@ -39,7 +39,7 @@ function handleLogin() {
                 localStorage.setItem('user', JSON.stringify(data.user)); // Save user
 
                 if (selectedRole === 'Canteen Staff') {
-                    window.location.href = 'staff.html';
+                    window.location.href = '/views/staff.html';
                 } else {
                     showDashboard();
                 }
@@ -85,28 +85,28 @@ function handleRegister() {
 
 function showDashboard() {
     // Play voice note immediately on click
-    const myVoice = new Audio('jevle-ka.mp3');
+    const myVoice = new Audio('/js/jevle-ka.mp3');
     myVoice.volume = 1;
     myVoice.play().then(() => {
         console.log("Audio playing successfully");
         // Redirect after a short delay to allow audio to start/finish? 
         // For now, let's redirect immediately, browser might cut it off.
-        window.location.href = 'dashboard.html';
+        window.location.href = '/views/dashboard.html';
     }).catch(error => {
         console.error("Audio play failed:", error);
-        window.location.href = 'dashboard.html';
+        window.location.href = '/views/dashboard.html';
     });
 
     // Fallback if promise hangs (not typically needed but good for safety)
     setTimeout(() => {
         if (window.location.href.indexOf('dashboard.html') === -1) {
-            window.location.href = 'dashboard.html';
+            window.location.href = '/views/dashboard.html';
         }
     }, 500);
 }
 
 function showLoginPage() {
-    window.location.href = 'login.html';
+    window.location.href = '/views/login.html';
 }
 
 function filterItems(category) {
@@ -235,20 +235,20 @@ function updateCartCount() {
 }
 
 function showFoodMenu() {
-    window.location.href = 'menu.html';
+    window.location.href = '/views/menu.html';
 }
 
 function showDashboardHome() {
-    window.location.href = 'dashboard.html';
+    window.location.href = '/views/dashboard.html';
 }
 
 function showJuiceMenu() {
     // Assuming juice menu is also part of menu.html using filters, or for now just redirect to menu
-    window.location.href = 'menu.html';
+    window.location.href = '/views/menu.html';
 }
 
 function showCart() {
-    window.location.href = 'cart.html';
+    window.location.href = '/views/cart.html';
 }
 
 function loadCartItems() {
@@ -520,18 +520,18 @@ function renderTicket(fullOrderId, shortId, qrUrl, method) {
 // Profile Logic
 
 function showProfile() {
-    window.location.href = 'profile.html';
+    window.location.href = '/views/profile.html';
 }
 
 function handleLogout() {
     localStorage.removeItem('user');
-    window.location.href = 'login.html';
+    window.location.href = '/views/login.html';
 }
 
 function loadProfile() {
     const user = JSON.parse(localStorage.getItem('user'));
     if (!user) {
-        window.location.href = 'login.html';
+        window.location.href = '/views/login.html';
         return;
     }
 
