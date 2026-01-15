@@ -65,16 +65,16 @@ The frontend is built using HTML, CSS, and JavaScript. The backend uses Node.js 
 Important Links
 
 Demo Video:
-https://drive.google.com/drive/folders/1YMitwkqTWcA72WhvIV9kcCf5pMosHKfS
+https://drive.google.com/file/d/1BEhlpCKFKhJsB2SsywH4xlPTaE5XAUip/view?usp=sharing
 
 System Architecture Diagram:
-https://drive.google.com/file/d/1DsZiaPyWiNg4Bq4POFdE46WHZRPeXntS
+https://drive.google.com/file/d/1DsZiaPyWiNg4Bq4POFdE46WHZRPeXntS/view?usp=sharing
 
 Future Business Models:
 https://docs.google.com/document/d/1Xz-lZ2OOXqtgLwLRjJbaZXuKK5-EOd1frT6Vqw6aryA
 
 Hardware Prototype:
-https://drive.google.com/file/d/1lXfrKxaIeH35wXEL9GAG8TQCMB0k-g9Z
+https://drive.google.com/file/d/16PM4-nG2GsNLSt3POB-_FZ4qT2uQ2dHS/view?usp=sharing
 
 System Design Architecture:
 https://docs.google.com/document/d/126vzwjnPWDXbb-yem3fOjbf3r0WcxZ2d8AOY6e4DtM0
