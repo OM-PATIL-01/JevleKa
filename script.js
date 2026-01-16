@@ -145,7 +145,7 @@ function filterItems(category) {
                         <div style="position:absolute; top:10px; right:10px; width:12px; height:12px; border-radius:50%; background:${dotColor}; border:2px solid white; box-shadow:0 2px 5px rgba(0,0,0,0.3); z-index:10;" title="${dotTitle}"></div>
                         
                         <!-- Price Badge -->
-                        <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(255,255,255,0.95); padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 13px; color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.15);">₹${item.price}</div>
+                        <div style="position: absolute; bottom: 10px; left: 10px; background: rgba(255,255,255,0.95); padding: 4px 10px; border-radius: 12px; font-weight: bold; font-size: 13px; color: var(--primary); box-shadow: 0 2px 8px rgba(0,0,0,0.15);">${item.price}</div>
                     </div>
                     
                     <div class="food-info" style="padding: 12px;">
@@ -917,3 +917,4 @@ if (document.getElementById('dashboard-screen')) {
     setInterval(pollNotifications, 5000);
     pollNotifications();
 }
+
