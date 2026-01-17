@@ -114,6 +114,9 @@ https://drive.google.com/file/d/16PM4-nG2GsNLSt3POB-_FZ4qT2uQ2dHS/view?usp=shari
 System Design Architecture:  
 https://docs.google.com/document/d/126vzwjnPWDXbb-yem3fOjbf3r0WcxZ2d8AOY6e4DtM0
 
+Literature Survey 
+https://docs.google.com/document/d/1l_LJmhrjjNxXVJPfynRVBg-F70-qfUwOkRVWSZlp0mA/edit?usp=sharing
+
 ---
 
 ## 🚀 Future Scope
