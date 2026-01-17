@@ -1,18 +1,21 @@
 JevleKa – Smart Canteen Ordering System
 
-JevleKa is a smart, lightweight, web-based canteen ordering system designed to address common operational challenges faced by college and institutional canteens. The system focuses on reducing long queues, minimizing manual errors, and improving order management efficiency using a simple and deployable digital solution. The project has been developed with an academic mindset while keeping future scalability and real-world adoption in focus.
+JevleKa is a smart web-based canteen ordering system created to solve common problems faced by college and institutional canteens. It helps reduce long waiting lines, avoid manual mistakes, and improve order handling by using a simple digital platform. The system allows users to place orders in advance and collect them efficiently, saving time for both customers and canteen staff. The project has been developed with an academic mindset while keeping future scalability and real-world adoption in focus.
 
-Ideation and Research (AI-Assisted)
+FULL WORKFLOW - The user orders food from their phone by selecting items from the menu and completing payment. As soon as the payment is successful, a QR code is generated and the order is sent to the backend system. The canteen staff is immediately notified and starts preparing the order. When the user reaches the canteen, they scan the QR code at the counter, which generates a receipt token for verification and record keeping. After validation, the user collects the prepared food without waiting.
 
-The ideation and research phase of JevleKa focused on identifying real-world problems observed in college canteens and evaluating which of them could be realistically solved within an academic project scope. AI tools were used as assistive aids to support brainstorming, feasibility analysis, requirement framing, and system planning. These tools helped generate multiple campus-related problem statements, analyze operational bottlenecks, and narrow down the scope to a manageable and impactful solution.
+Ideation and Research 
 
-The major problems identified included long queues during peak hours, manual order-taking leading to mistakes, time wastage for students between lectures, and difficulty for canteen staff to track multiple orders simultaneously. With AI assistance, the problem was refined into a clear and concise focus: designing a web-based canteen ordering system that allows users to place orders digitally and enables staff to manage orders efficiently through a centralized interface.
+During rush hours like lunch breaks, college canteens face long queues and overcrowding, causing students to waste time waiting to place orders. Orders are taken verbally, which becomes difficult for staff to manage when many students order at the same time.
+This leads to confusion, delayed food preparation, and mistakes such as wrong items, missed orders, or payment issues. Without proper order tracking, students are unsure when their food will be ready, making the pickup process unpredictable. Staff efficiency also drops due to manual handling of multiple orders.
+
+Students prefer a fast and predictable takeaway system, but existing food delivery platforms are too complex and costly for a single-canteen setup. These challenges highlight the need for a simple and efficient digital ordering solution for college canteens.
 
 Requirement Analysis and Scope Definition
 
-AI tools were further used to convert the finalized problem statement into functional and non-functional requirements while ensuring the scope remained realistic. The system supports essential features such as user authentication, menu browsing, cart-based ordering, order submission, and a staff-side order management dashboard. Non-functional requirements include lightweight performance, fast response time, easy local deployment, and minimal infrastructure dependency.
+The system is a practical solution for essential canteen operations. It supports user authentication for students and staff, menu browsing, cart-based ordering, and digital order placement. A dummy payment flow ( for now - to avoid gateway fees) and then QR generation. Orders are processed directly without manual intervention.
 
-To prevent scope creep, advanced features such as online payments, delivery logistics, and QR-based workflows were intentionally excluded from the academic version. This ensured the project remained focused, stable, and implementable within limited time and resources.
+A staff dashboard allows real-time order viewing and status management. The system is optimized for fast response during peak hours and supports easy local deployment with minimal infrastructure. Delivery and logistics are intentionally excluded. The scope is limited to a single-canteen setup to keep the system lightweight and efficient.
 
 Business Overview
 
