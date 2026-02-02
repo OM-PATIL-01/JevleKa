@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div id="login-screen" class="screen">
+        <div class="login-header">
+            <img src="logo.png" alt="Jevle Khana" class="app-logo">
+            <p class="subtitle">Delicious food, just a tap away</p>
+        </div>
+
+        <div class="pizza-container">
+            <img src="https://img.freepik.com/free-vector/colorful-round-tasty-pizza_1284-10219.jpg" alt="Pizza"
+                class="rotating-pizza">
+        </div>
+        <p class="label">Select your role</p>
+
+        <div class="role-selector">
+            <div class="role-card active" onclick="selectRole(this)">
+                <i class="fas fa-users"></i>
+                <span>Customer</span>
+            </div>
+            <div class="role-card" onclick="selectRole(this)">
+                <i class="fas fa-utensils"></i>
+                <span>Canteen Staff</span>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form-container" class="login-box">
+            <h2 style="color:var(--primary); margin-top:0;">Welcome Back</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="login-username" placeholder="Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="login-password" placeholder="Password">
+            </div>
+
+            <button class="btn-primary" onclick="handleLogin()">Sign In <i class="fas fa-arrow-right"></i></button>
+
+            <p class="signup-link">Don't have an account? <span class="highlight" onclick="toggleAuthMode()"
+                    style="cursor:pointer;">Sign Up</span></p>
+        </div>
+
+        <!-- Register Form (Hidden by default) -->
+        <div id="register-form-container" class="login-box hidden">
+            <h2 style="color:var(--primary); margin-top:0;">Create Account</h2>
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="reg-username" placeholder="Choose Username">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="reg-email" placeholder="Email Address">
+            </div>
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="reg-password" placeholder="Choose Password">
+            </div>
+
+            <button class="btn-primary" onclick="handleRegister()">Sign Up <i class="fas fa-user-plus"></i></button>
+
+            <p class="signup-link">Already have an account? <span class="highlight" onclick="toggleAuthMode()"
+                    style="cursor:pointer;">Sign In</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
