@@ -107,7 +107,7 @@
                     const response = await fetch('/api/auth/google', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ idToken })
+                        body: JSON.stringify({ idToken, role: window.selectedRole })
                     });
 
                     const data = await response.json();
@@ -115,17 +115,18 @@
 
                     if (response.ok) {
                         localStorage.setItem('user', JSON.stringify(data.user));
-                        console.log("Redirecting to dashboard...");
-                        alert("Login Successful! Redirecting...");
-                        // Explicitly call from window as script.js is global but we are in a module
-                        if (window.showDashboard) {
+                        console.log("Redirecting...");
+
+                        if (window.selectedRole === 'Canteen Staff') {
+                            window.location.href = 'staff.html';
+                        } else if (window.showDashboard) {
                             window.showDashboard();
                         } else {
                             window.location.href = 'dashboard.html';
                         }
                     } else {
                         console.error("Login failed:", data.message);
-                        alert(`Login Failed: ${data.message}\nHint: ${data.hint || ''}`);
+                        alert(`Login Failed: ${data.message}\n${data.hint || ''}`);
                     }
                 } catch (error) {
                     console.error("Google Sign-in Error Details:", error);

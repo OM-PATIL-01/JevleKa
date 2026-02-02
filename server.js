@@ -154,12 +154,20 @@ app.post('/api/register', asyncHandler(async (req, res) => {
 
 // Google Auth
 app.post('/api/auth/google', asyncHandler(async (req, res) => {
-    const { idToken } = req.body;
+    const { idToken, role } = req.body;
     if (!idToken) return res.status(400).json({ message: "ID Token is required" });
 
     try {
         const decodedToken = await admin.auth().verifyIdToken(idToken);
         const { email, name, picture } = decodedToken;
+
+        // Restriction: Only ONE specific email can be staff
+        if (role === 'Canteen Staff' && email !== 'jevleka.staff@gmail.com') {
+            return res.status(403).json({
+                message: "Access Denied",
+                hint: "This email is not authorized for staff access."
+            });
+        }
 
         // Check if user exists by email
         let { rows } = await db.query("SELECT * FROM users WHERE email = $1", [email]);
