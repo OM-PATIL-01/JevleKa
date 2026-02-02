@@ -155,19 +155,16 @@ app.post('/api/register', asyncHandler(async (req, res) => {
 // Google Auth
 app.post('/api/auth/google', asyncHandler(async (req, res) => {
     const { idToken, role } = req.body;
+    console.log("Login attempt - Role:", role, "Token length:", idToken ? idToken.length : 0);
+
     if (!idToken) return res.status(400).json({ message: "ID Token is required" });
 
     try {
+        console.log("Verifying ID Token with Firebase...");
         const decodedToken = await admin.auth().verifyIdToken(idToken);
         const { email, name, picture } = decodedToken;
+        console.log("Token verified for email:", email);
 
-        // Restriction: Only ONE specific email can be staff
-        if (role === 'Canteen Staff' && email !== 'jevleka.staff@gmail.com') {
-            return res.status(403).json({
-                message: "Access Denied",
-                hint: "This email is not authorized for staff access."
-            });
-        }
 
         // Check if user exists by email
         let { rows } = await db.query("SELECT * FROM users WHERE email = $1", [email]);
@@ -186,15 +183,24 @@ app.post('/api/auth/google', asyncHandler(async (req, res) => {
         const user = { id: rows[0].id, username: rows[0].username, email: rows[0].email, picture };
         res.json({ message: "Login successful", user });
     } catch (error) {
-        console.error("Firebase Auth Error Details:", {
-            code: error.code,
-            message: error.message,
-            stack: error.stack
-        });
-        res.status(401).json({
-            message: "Invalid Google Token",
+        console.error("Login Route Error:", error);
+
+        let status = 401;
+        let msg = "Google Login failed";
+
+        if (error.code && error.code.startsWith('auth/')) {
+            msg = "Firebase Auth Error: " + error.message;
+        } else if (error.code === 'ETIMEDOUT' || error.message.includes('timeout')) {
+            status = 503;
+            msg = "Database/Network Timeout. Please try again.";
+        } else {
+            msg = "Internal Error: " + error.message;
+        }
+
+        res.status(status).json({
+            message: msg,
             error: error.message,
-            hint: "Check if serviceAccountKey.json is configured or if project ID matches."
+            hint: "Check connectivity or project configuration."
         });
     }
 }));
