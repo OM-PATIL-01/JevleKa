@@ -112,21 +112,31 @@
                     const data = await response.json();
                     console.log("Backend response:", data);
 
-                    if (data.message === "Login successful") {
+                    if (response.ok) {
                         localStorage.setItem('user', JSON.stringify(data.user));
                         console.log("Redirecting to dashboard...");
-                        showDashboard(); // Function from script.js
+                        alert("Login Successful! Redirecting...");
+                        // Explicitly call from window as script.js is global but we are in a module
+                        if (window.showDashboard) {
+                            window.showDashboard();
+                        } else {
+                            window.location.href = 'dashboard.html';
+                        }
                     } else {
                         console.error("Login failed:", data.message);
-                        alert(data.message || "Google Sign-in failed");
+                        alert(`Login Failed: ${data.message}\nHint: ${data.hint || ''}`);
                     }
                 } catch (error) {
                     console.error("Google Sign-in Error Details:", error);
-                    if (error.code === 'auth/configuration-not-found') {
-                        alert("Firebase configuration is missing or incorrect. Please check firebase-config.js.");
-                    } else {
-                        alert("An error occurred during Google Sign-in.");
+                    let msg = "An error occurred during Google Sign-in.";
+                    if (error.code === 'auth/popup-closed-by-user') {
+                        msg = "Sign-in cancelled by user.";
+                    } else if (error.code === 'auth/configuration-not-found') {
+                        msg = "Firebase configuration is missing or incorrect.";
+                    } else if (error.code === 'auth/unauthorized-domain') {
+                        msg = "This domain (localhost) is not authorized in Firebase Console.";
                     }
+                    alert(msg + "\nCode: " + error.code);
                 }
             });
         }
